@@ -5,5 +5,5 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 public interface PlatesAPI {
     @GET("lp")
-    Call<DriverInfo> queryLicensePlate(@Query("state") String state, @Query("plate") String licensePlate);
+    Call<DriverInfo> queryLicensePlate(@Query("state") String state, @Query("plate") String licensePlate, @Query("key") String key);
 }

@@ -49,7 +49,7 @@ fun DisplayResult(ocrResultState: MutableState<String>,platesApi: PlatesAPI, onC
         return ocrResultState.substringAfter('_', "")
     }
     fun searchPlate(state: String, plate: String) {
-        val call = platesApi.queryLicensePlate(state, plate)
+        val call = platesApi.queryLicensePlate(state, plate, "bc5300a645ed994e494e70e31fd11b91eb685ca139a1d50eab1e447d61da2be2")
         call.enqueue(object : Callback<DriverInfo> {
             override fun onResponse(call: Call<DriverInfo>, response: Response<DriverInfo>) {
                 if (response.isSuccessful) {
