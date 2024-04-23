@@ -25,6 +25,7 @@ import androidx.compose.foundation.background
 import androidx.compose.ui.graphics.Color
 import com.example.parkingpermitapp.cameraview.AppFunctions
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -53,6 +54,7 @@ class MainActivity : ComponentActivity() {
                         if (user == "Alan" && password == "bc5300a645ed994e494e70e31fd11b91eb685ca139a1d50eab1e447d61da2be2") {
                             setContent {
                                 HomeScreen()
+                                requestCameraPermission()
                             }
                         } else {
                             // Handle incorrect credentials here (show error message, etc.)
@@ -131,14 +133,18 @@ fun SignInScreen(onSignInClicked: (username: String, password: String) -> Unit) 
             value = password,
             onValueChange = { password = it },
             label = { Text("Password") },
+
             modifier = Modifier.fillMaxWidth() .background(color = Color(0xFFFFFFFF)),
             singleLine = true,
             visualTransformation = if (passwordVisibility) VisualTransformation.None else PasswordVisualTransformation(),
+            keyboardOptions = KeyboardOptions.Default.copy(
+                autoCorrect = false
+            ),
             trailingIcon = {
                 TextButton(
                     onClick = { passwordVisibility = !passwordVisibility },
                 ) {
-                    Text(if (passwordVisibility) "Hide" else "Show")
+                    Text(if (passwordVisibility) "Hide"  else "Show")
                 }
             }
         )
