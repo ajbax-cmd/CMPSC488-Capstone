@@ -1,4 +1,4 @@
-# CMPSC488-Capstone: Real-Time License Plate Detection Android App
+# Real-Time License Plate Detection Android App
 
 **Penn State Harrisburg | Senior Capstone Project (2024)**  
 **Project Name:** Penn State Plates
